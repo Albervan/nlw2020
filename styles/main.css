@@ -1,0 +1,98 @@
+:root {
+    /*Definição de variáveis no css*/
+    --color-background: #F0F0F7;
+    --color-primary-lighter: #9871F5;
+    --color-primary-light: #916BEA;
+    --color-primary: #8257E5;
+    --color-primary-dark: #774DD6;
+    --color-primary-darker: #6842c2;
+    --color-secondary: #04D361;
+    --color-secondary-dark: #04BF58;
+    --color-title-in-primary: #FFFFFF;
+    --color-text-in-primary: #D4C2FF;
+    --color-text-title: #32264D;
+    --color-text-complement: #9C98A6;
+    --color-text-base: #6A6180;
+    --color-line-in-white: #E6E6F0;
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-box-base: #FFFFFF;
+    --color-box-footer: #FAFAFC;
+    --color-small-info: #C1BCCC;
+
+    /*
+    Tamanho de fonte
+    - Fonte padrão:
+        - Tamanho absoluto: 16px
+        - Tamanho relativo: 1rem
+        - Tamanho percentual: 100%
+
+    - Controle de Medidas "rem"
+        - rem: Root Elemment (Relativo ao Root)
+        - em: Elemment (Relativo ao elemento pai
+    */
+    font-size: 60%; /* controle das medidas rem */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+/*Box Model
+
+- Preenchimento e Margem
+    
+    - Sintax compacta
+        padding: 40px 30px 20px 10px; 
+        margin: 60px 40px;
+    - A atribuição de valores é dinâmica de acordo com a quantidade de parametros
+        - 4 param: top, rigth, botton, left
+        - 1 param: all
+        - 2 param: top e botton, rigth e left
+        - 3 param: top, rigth e left, botton
+
+    - Sintax analítica
+        padding-left: 20px;
+        padding-bottom: 30px;
+*/
+
+body {
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body,
+input,
+button,
+textarea {
+    /*Definição compacta
+    font: 500 1.6rem Poppins;*/
+
+    /*Definição dos detalhes da fonte*/
+    font-weight: 500;
+    font-family: Poppins;
+    font-size: 1.6rem;
+
+    color: var(--color-text-base);
+}
+
+#container {
+    width: 90vw;
+    max-width: 700px;
+}
+
+@media (min-width: 700px) {
+    :root {
+        font-size: 62.5%;
+        /* 1rem vai ser equivalente a 10px */
+    }
+}
