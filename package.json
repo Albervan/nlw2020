@@ -1,20 +1,9 @@
 {
   "name": "nlw2020",
-  "version": "1.0.0",
-  "description": "Next Level Week 2020 - Rocketseat",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Albervan/nlw2020.git"
-  },
-  "keywords": [],
-  "author": "Albervan Bergamasco Davies",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Albervan/nlw2020/issues"
-  },
-  "homepage": "https://github.com/Albervan/nlw2020#readme"
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
