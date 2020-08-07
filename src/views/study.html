@@ -75,51 +75,36 @@
         <main>
             <!-- Conteúdo principal da página -->
 
-            <article class="teacher-item">
-                <header>
-                    <img
-                        src="https://avatars2.githubusercontent.com/u/54541416?s=460&v=4" 
-                        alt="Albervan B. Davies">
+            <!-- Recurso da Template Engine do nunjucks -->
+            {%for proffy in proffys %}
 
-                    <div>
-                        <strong>Albervan B. Davies</strong>
-                        <span>Teologia</span>
-                    </div>
-                </header>
+                <article class="teacher-item">
+                    <header>
+                        <img
+                            src="{{proffy.avatar}}"
+                            alt="{{proffy.name}}">
 
-                <p>Para confundir os que são com os que não são.<br><br>Comissionado a dismistificar o comportamento cristão genuino, aplicando a verdadeira lei da liberdade sem cadeias de religiosidade humana, seguindo o propósito celestial de edificar o corpo da igreja do SENHOR.</p>
+                        <div>
+                            <strong>{{proffy.name}}</strong>
+                            <span>{{proffy.subject}}</span>
+                        </div>
+                    </header>
 
-                <footer>
-                    <p>Preço/hora<strong>R$ 20,00</strong>
-                    </p>
-                    <button type="button">
-                        <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                    </button>
-                </footer>
-            </article>
+                    <p>{{proffy.bio}}</p>
 
-            <article class="teacher-item">
-                <header>
-                    <img
-                        src="https://avatars2.githubusercontent.com/u/2254731?s=460&amp;u=0ba16a79456c2f250e7579cb388fa18c5c2d7d65&amp;v=4" 
-                        alt="Diego Fernandes">
+                    <footer>
+                        <p>Preço/hora<strong>R$ {{proffy.cost}}</strong>
+                        </p>
 
-                    <div>
-                        <strong>Diego Fernandes</strong>
-                        <span>Química</span>
-                    </div>
-                </header>
+                        <a href="https://api.whatsapp.com/send?l=pt_BR&phone=55{{proffy.whatsapp}}&text=Tenho interesse na sua aula de {{proffy.subject}} {{proffy.name}}" class="button" target="_blank">
+                            <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
+                        </a>
+                            
+                    </footer>
+                </article>
 
-                <p>Entusiasta das melhores tecnologias de química avançada.<br><br>Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma das minhas explosões.</p>
+            {%endfor%}
 
-                <footer>
-                    <p>Preço/hora<strong>R$ 20,00</strong>
-                    </p>
-                    <button type="button">
-                        <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                    </button>
-                </footer>
-            </article>
         </main>
     </div>
 
