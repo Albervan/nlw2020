@@ -22,21 +22,24 @@ const proffys = [
     }
 ]
 
+function pageLanding(req, res) {
+    return res.sendfile(__dirname + "/views/index.html")
+}
+function pageStudy(req, res) {
+    return res.sendfile(__dirname + "/views/study.html")
+}
+function pageGiveClasses(req, res) {
+    return res.sendfile(__dirname + "/views/give-classes.html")
+}
 
 const express = require('express')
 const server = express()
 
 server
-    .use(express.static("public"))
-
-    .get("/", (req, res) => {
-        return res.sendfile(__dirname + "/views/index.html")
-    })
-    .get("/study", (req, res) => {
-        return res.sendfile(__dirname + "/views/study.html")
-    })
-    .get("/give-classes", (req, res) => {
-        return res.sendfile(__dirname + "/views/give-classes.html")
-    })
-
+    .use(express.static("public")) //Definição da localização de estilos do servidor
+    //Definição das rotas do servidor
+    .get("/", pageLanding)
+    .get("/study", pageStudy)
+    .get("/give-classes", pageGiveClasses)
+    //Definição da porta aberta para o servidor
     .listen(5500)
