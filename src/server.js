@@ -58,6 +58,13 @@ const weekdays = [
 ]
 
 // Funcionalidades da aplicação
+function getSubjectName(subjectNumber) {
+    // O "+" na frente da variável garante que ela é um número
+    const subjectIndex = +subjectNumber - 1
+
+    return subjects[subjectIndex]
+}
+
 function pageLanding(req, res) {
     return res.render("index.html")
 }
@@ -73,6 +80,9 @@ function pageGiveClasses(req, res) {
 
     //Se tiver dados adicionar ao array proffys
     if (isNotEmpty) {
+        // Ajustar a informação do subject
+        data.subject = getSubjectName(data.subject)
+
         //Adiciona os dados ao array
         proffys.push(data)
 
