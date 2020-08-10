@@ -83,7 +83,7 @@
                         <label for="cost">Custo da sua hora/aula
                             <small>(R$)</small>
                         </label>
-                        <input type="number" name="cost" id="cost">
+                        <input type="number" name="cost" id="cost" required>
                     </div>
                 
                 </fieldset>
@@ -97,11 +97,11 @@
                         <div class="select-block">
                             <label for="weekday">Dia da semana</label>
                             <!-- A tag "select" com "[]" na propriedade "name" indica que poderá ser selecionado mais de 1 valor -->
-                            <select name="weekday[]"> required
+                            <select name="weekday[]" id="weekday" required>
                                 <option value="">Selecione uma opção</option>
                                
                                 {%for weekday in weekdays %}
-                                    <option value="loop.index0">{{weekday}}</option>
+                                    <option value="{{loop.index0}}">{{weekday}}</option>
                                 {%endfor%}
 
                             </select>

@@ -66,6 +66,21 @@ function pageStudy(req, res) {
     return res.render("study.html", { proffys, filters, subjects, weekdays }) //Passando parametros do back-en para o front-end
 }
 function pageGiveClasses(req, res) {
+    const data = req.query
+    
+    // Indentificar se o objeto não está vazio
+    const isNotEmpty = Object.keys(data).length > 0
+
+    //Se tiver dados adicionar ao array proffys
+    if (isNotEmpty) {
+        //Adiciona os dados ao array
+        proffys.push(data)
+
+        // Redirecionar para a página "study"
+        return res.redirect("/study")
+    }
+
+    // Se não, limpar a página
     return res.render("give-classes.html", { subjects, weekdays })
 }
 
