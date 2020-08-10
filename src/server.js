@@ -1,3 +1,4 @@
+// Dados da aplicação
 const proffys = [
     { name: "Albervan Bergamasco Davies", 
         avatar: "https://avatars2.githubusercontent.com/u/54541416?s=460&v=4" ,
@@ -19,29 +20,67 @@ const proffys = [
         weekday: [4], 
         time_from: [1720], 
         time_to: [2220]
+    },
+
+    { name: "Geicy Dayane Morales Bezerra Davies", 
+        avatar: "https://scontent-gru2-2.xx.fbcdn.net/v/t1.0-1/p160x160/58704148_826398274384470_2630340669033414656_o.jpg?_nc_cat=100&_nc_sid=dbb9e7&_nc_eui2=AeGMW5BOhh1wNVLwBTCYp6MZ7cwzdpyeGCztzDN2nJ4YLGxdWM1K4y8fLGtYBDKAtUeymNskRUDYZ9dSB72WcqRs&_nc_ohc=s1Rn1vIiHtIAX9XyO9J&_nc_ht=scontent-gru2-2.xx&_nc_tp=6&oh=a1e4f0584d94deb53b438b778518b94f&oe=5F54B561",
+        whatsapp: "(66) 99 964-6252", 
+        bio: "Muito hablidosa com crianças para atrair a atenção com foco na aprendizagem prazerosa.<br><br>Tem grande capadida com necessidades especiais com formação em Neuro-piscologia e altas habilidades.", 
+        subject: "Português", 
+        cost: "120,00", 
+        weekday: [2], 
+        time_from: [11720], 
+        time_to: [12220]
     }
 ]
 
+const subjects = [
+    "Artes",
+    "Biologia",
+    "Ciências",
+    "Educação física",
+    "Física",
+    "Geografia",
+    "História",
+    "Matemática",
+    "Português",
+    "Química",
+]
+
+const weekdays = [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado",
+]
+
+// Funcionalidades da aplicação
 function pageLanding(req, res) {
     return res.render("index.html")
 }
 function pageStudy(req, res) {
-    return res.render("study.html", { proffys })
+    const filters = req.query //Recebe os parametros da página (Informações que ficam após o "?")
+    return res.render("study.html", { proffys, filters, subjects, weekdays }) //Passando parametros do back-en para o front-end
 }
 function pageGiveClasses(req, res) {
-    return res.render("give-classes.html")
+    return res.render("give-classes.html", { subjects, weekdays })
 }
 
+// Definições do servidor
 const express = require('express')
 const server = express()
 const nunjucks = require('nunjucks')
 
-//Configurar nunjuck
+// Configuração nunjuck (template engine)
 nunjucks.configure('src/views', {
     express: server,
     noCache: true
 })
 
+// Execução do servidor
 server
     //Definição da localização de estilos do servidor
     .use(express.static("public")) 
@@ -49,5 +88,5 @@ server
     .get("/", pageLanding)
     .get("/study", pageStudy)
     .get("/give-classes", pageGiveClasses)
-    //Definição da porta aberta para o servidor
+    //Definição da porta aberta e start do servidor
     .listen(5500)
