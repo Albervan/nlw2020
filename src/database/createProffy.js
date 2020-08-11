@@ -3,6 +3,7 @@ module.exports = async function(db, { proffyValue, classValue, classScheduleValu
     // para utilizar o "await" dentro de uma função, não declaração é necessário a palavra chave "async"
 
     console.log(proffyValue)
+    // const insertedProffy = 
     const insertedProffy = await db.run(`
         INSERT INTO proffys (
             name,
