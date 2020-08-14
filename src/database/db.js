@@ -2,7 +2,7 @@ const database = require('sqlite-async')
 
 function execute(db) {
     //Criar as tabelas do BD
-    db.exec(`
+    return db.exec(`
         CREATE TABLE IF NOT EXISTS proffys (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,

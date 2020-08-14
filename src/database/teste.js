@@ -1,7 +1,7 @@
-const database = require('./db')
+const Database = require('./db')
 const createProffy = require('./createProffy')
 
-database.then(async (db) => {
+Database.then(async (db) => {
     // Inserir dados
 
     proffyValue = {
