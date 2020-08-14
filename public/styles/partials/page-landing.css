@@ -91,9 +91,13 @@
 
 /* Regra do css que determina aplicação mediante um padrão.
 Essa gera será para alterar o layout de acordo com o tamanho da tela*/
-@media (max-width: 699px) {
+@media (max-width: 1100px) {
     :root {
         font-size: 40%;
+    }
+
+    .hero-image {
+        height: 45rem;
     }
 }
 
